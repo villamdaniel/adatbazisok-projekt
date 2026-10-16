@@ -1,0 +1,25 @@
+services:
+  db:
+    image: postgres:16
+    container_name: lumen_klinika_db
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-lumen_klinika}
+      POSTGRES_USER: ${POSTGRES_USER:-lumen}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-lumen_dev}
+      TZ: Europe/Budapest
+    command: ["postgres", "-c", "timezone=Europe/Budapest", "-c", "log_timezone=Europe/Budapest"]
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - ./sql/init:/docker-entrypoint-initdb.d:ro
+      - ./sql/demo:/demo:ro
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-lumen} -d ${POSTGRES_DB:-lumen_klinika}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
+
+volumes:
+  pgdata:
