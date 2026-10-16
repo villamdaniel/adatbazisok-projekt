@@ -3,6 +3,7 @@
 Egyetemi adatbázis-projekt. A Lumen Klinika járó- és fekvőbeteg-ellátásának relációs modellje és PostgreSQL 16 (vagy újabb) megvalósítása. A hangsúly az SQL-en van: séma, megszorítás, nézet, trigger, tárolt eljárás, tranzakció, jogosultság és lekérdezés.
 
 Hallgató neve:  Villám Dániel Zsolt
+
 Neptun-kód: IF5XNY
 
 A feladat leírása a [docs/01-feladat.md](docs/01-feladat.md) fájlban van. Az egyed-kapcsolat modell a [docs/02-ermodell.md](docs/02-ermodell.md), a normalizálás és az integritás a [docs/03-relacios-modell.md](docs/03-relacios-modell.md), a védés menete a [docs/04-bemutato.md](docs/04-bemutato.md) fájlban.
